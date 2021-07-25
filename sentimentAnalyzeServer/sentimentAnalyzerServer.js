@@ -51,12 +51,8 @@ app.get("/url/emotion", (req,res) => {
      
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        if (analysisResults.result.emotion.document.emotion) {
-            res.send(analysisResults.result.emotion.document.emotion);
-        }
-        else {
-            res.send('No url');
-        }
+        res.send(analysisResults.result.emotion.document.emotion);
+
     })
     .catch(err => {
         let errmsg = {'Error': err.toString()}
@@ -80,12 +76,8 @@ app.get("/url/sentiment", (req,res) => {
       
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        if (analysisResults.result.sentiment.document.label) {
-            res.send(analysisResults.result.sentiment.document.label);
-        }
-        else {
-            res.send('No url');
-        }
+        res.send(analysisResults.result.sentiment.document.label);
+
     })
     .catch(err => {
         res.send(err.toString())
@@ -108,12 +100,8 @@ app.get("/text/emotion", (req,res) => {
      
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        if (analysisResults.result.emotion.document.emotion) {
-            res.send(analysisResults.result.emotion.document.emotion);
-        }
-        else {
-            res.send('No url');
-        }
+        res.send(analysisResults.result.emotion.document.emotion);
+
     })
     .catch(err => {
         let errmsg = {'Error': err.toString()}
@@ -138,12 +126,7 @@ app.get("/text/sentiment", (req,res) => {
       
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        if (analysisResults.result.sentiment.document.label) {
-            res.send(analysisResults.result.sentiment.document.label);
-        }
-        else {
-            res.send('No url');
-        }
+        res.send(analysisResults.result.sentiment.document.label);
     })
     .catch(err => {
         res.send(err.toString())

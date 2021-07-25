@@ -3,7 +3,10 @@ import './App.css';
 import EmotionTable from './EmotionTable.js';
 import React from 'react';
 
+
+
 class App extends React.Component {
+
   state = {innercomp:<textarea rows="4" cols="50" id="textinput"/>,
             mode: "text",
           sentimentOutput:[],
@@ -88,5 +91,7 @@ class App extends React.Component {
     );
     }
 }
+
+
 
 export default App;

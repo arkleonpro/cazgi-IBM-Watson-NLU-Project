@@ -51,8 +51,6 @@ app.get("/url/emotion", (req,res) => {
      
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        //console.log(JSON.stringify(analysisResults, null, 2));
-        // res.send(JSON.parse(JSON.stringify(analysisResults.result.emotion.document.emotion, null, 2)));
         if (analysisResults.result.emotion.document.emotion) {
             res.send(analysisResults.result.emotion.document.emotion);
         }
@@ -82,7 +80,6 @@ app.get("/url/sentiment", (req,res) => {
       
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        // res.send(JSON.parse(JSON.stringify(analysisResults.result.sentiment.document.label, null, 2)));
         if (analysisResults.result.sentiment.document.label) {
             res.send(analysisResults.result.sentiment.document.label);
         }
@@ -91,7 +88,6 @@ app.get("/url/sentiment", (req,res) => {
         }
     })
     .catch(err => {
-        let errmsg = {'Error': err.toString()}
         res.send(err.toString())
         console.log(err.toString())
     });
@@ -102,7 +98,6 @@ app.get("/text/emotion", (req,res) => {
 
     console.log(`${req.query.text}`)
     const analyzeParams = {
-        //'text': 'Joy of the world',
         'text': `${req.query.text}`,
         'features': {
           'emotion': {
@@ -113,8 +108,6 @@ app.get("/text/emotion", (req,res) => {
      
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        // console.log(JSON.stringify(analysisResults, null, 2));
-        // res.send(JSON.parse(JSON.stringify(analysisResults.result.emotion.document.emotion, null, 2)));
         if (analysisResults.result.emotion.document.emotion) {
             res.send(analysisResults.result.emotion.document.emotion);
         }
@@ -145,7 +138,6 @@ app.get("/text/sentiment", (req,res) => {
       
     getNLU.analyze(analyzeParams)
     .then(analysisResults => {
-        // res.send(JSON.parse(JSON.stringify(analysisResults.result.sentiment.document.label, null, 2)));
         if (analysisResults.result.sentiment.document.label) {
             res.send(analysisResults.result.sentiment.document.label);
         }
@@ -154,7 +146,6 @@ app.get("/text/sentiment", (req,res) => {
         }
     })
     .catch(err => {
-        let errmsg = {'Error': err.toString()}
         res.send(err.toString())
         console.log(err.toString())
 
